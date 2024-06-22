@@ -9,7 +9,7 @@ osm.addTo(map)
 
 // add popup to each feature
 function popUPinfo(feature, layer) {
- layer.bindPopup(feature.properties.TOWERS)
+ layer.bindPopup(feature.geometry.type)
 }
 // add geoJSON polygons layer
 async function addDistrictsGeoJson(url) {
