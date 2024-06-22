@@ -29,7 +29,7 @@ function defaultMapSettings(mapId) {
 
 // add popup to each feature
 function popUPinfo(feature, layer) {
- layer.bindPopup(feature.geometry.NIMI)
+ layer.bindPopup(feature.properties.NIMI)
 }
 // add geoJSON polygons layer
 async function addDistrictsGeoJson(map, url) {
