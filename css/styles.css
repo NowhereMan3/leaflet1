@@ -1,5 +1,11 @@
 /* Map */
-#map {
+#map1 {
+    height: 700px;
+    width: 100%;
+}
+
+
+#map2 {
     height: 700px;
     width: 100%;
 }
