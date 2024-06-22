@@ -1,10 +1,19 @@
-let map = L.map('map').setView([58.373523, 26.716045], 12)
-const osm =
+let map1 = L.map('map1').setView([58.373523, 26.716045], 12)
+const osm1 =
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
  maxZoom: 19,
  attribution: 'OpenStreetMap contributors',
 })
-osm.addTo(map)
+osm1.addTo(map1)
+
+let map2 = L.map('map2').setView([58.373523, 26.716045], 12)
+const osm2 =
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+ maxZoom: 19,
+ attribution: 'OpenStreetMap contributors',
+})
+osm2.addTo(map2)
+
 
 
 // add popup to each feature
@@ -12,7 +21,7 @@ function popUPinfo(feature, layer) {
  layer.bindPopup(feature.geometry.NIMI)
 }
 // add geoJSON polygons layer
-async function addDistrictsGeoJson(url) {
+async function addDistrictsGeoJson(map, url) {
  const response = await fetch(url)
  const data = await response.json()
  const polygons = L.geoJson(data, {
@@ -21,7 +30,7 @@ async function addDistrictsGeoJson(url) {
  })
  polygons.addTo(map)
 }
-addDistrictsGeoJson('geojson/tartu_city_districts_edu.geojson')
+
 
 // get color from feature property
 function getColor(property) {
@@ -50,5 +59,16 @@ function polygonStyle(feature) {
  }
 }
 
+
+addDistrictsGeoJson(map1, 'geojson/tartu_city_districts_edu.geojson')
+
+// add geoJSON points layer*
+async function addCelltowersGeoJson(map,url) {
+ const response = await fetch(url)
+ const data = await response.json()
+ const markers = L.geoJson(data)
+ markers.addTo(map)
+}
+addCelltowersGeoJson(map2,'geojson/tartu_city_celltowers_edu.geojson')
 
 
