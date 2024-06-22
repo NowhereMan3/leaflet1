@@ -14,6 +14,17 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 })
 osm2.addTo(map2)
 
+// Default map settings
+function defaultMapSettings(mapId) {
+  if (mapId === 'map1') {
+    map1.setView([58.373523, 26.716045], 12);
+  } else if (mapId === 'map2') {
+    map2.setView([58.373523, 26.716045], 12);
+  }
+}
+
+
+
 
 
 // add popup to each feature
