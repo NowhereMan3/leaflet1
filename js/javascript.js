@@ -22,3 +22,30 @@ async function addDistrictsGeoJson(url) {
 }
 addDistrictsGeoJson('geojson/tartu_city_districts_edu.geojson')
 
+// get color from feature property
+function getColor(property) {
+ switch (property) {
+ case 9:
+ return '#ff0000'
+ case 3:
+ return '#009933'
+ case 14:
+ return '#0000ff'
+ case 10:
+ return '#ff0066'
+ default:
+ return '#ffffff'
+ }
+}
+
+// polygon style
+function polygonStyle(feature) {
+ return {
+ fillColor: getColor(feature.properties.OBJECTID),
+ fillOpacity: 0.5,
+ weight: 1,
+ opacity: 1,
+ color: 'grey',
+ }
+}
+
