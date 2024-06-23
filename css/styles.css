@@ -9,3 +9,13 @@
     height: 700px;
     width: 100%;
 }
+
+h2 {
+ text-align: center;
+ color: red;
+}
+
+h3 {
+ text-align: center;
+ color: red;
+}
